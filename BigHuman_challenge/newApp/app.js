@@ -8,7 +8,7 @@ var jwt = require('express-jwt'); // New import!
 // Import routing files
 var indexRouter = require('./routes/index');
 
-// Activate .env file
+// Activate .env file 
 require('dotenv').config();
 
 var app = express();
