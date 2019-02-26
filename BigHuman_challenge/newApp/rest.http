@@ -1,0 +1,40 @@
+### Authorise an employee's log-in.
+POST http://localhost:3030/auth
+Content-Type: application/json
+
+{
+    "name":"Mariela",
+    "email":"mariela@example.com",
+    "password":"first"
+}
+
+### Show all plants
+GET http://localhost:3030/plants
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmllbGFAZXhhbXBsZS5jb20iLCJpYXQiOjE1NTExMjcwMDMsImV4cCI6MTU1MTEzMDYwM30.pZ669Sn1VJmbs-07hy95oJgDp6j2gI62WkJdJJ1ofxg
+
+### Show one plant
+GET http://localhost:3030/plants/5c72d143a6a29c4ac5602022
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmllbGFAZXhhbXBsZS5jb20iLCJpYXQiOjE1NTEwMjcwNTIsImV4cCI6MTU1MTAzMDY1Mn0.dJVs_NYEXhlsRYRZuTR0R93QpOQYGb5uVtM9-_EMpbc
+
+### Insert a comment
+PATCH http://localhost:3030/plants/5c72d143a6a29c4ac5602022/comments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmllbGFAZXhhbXBsZS5jb20iLCJpYXQiOjE1NTEwMjcwNTIsImV4cCI6MTU1MTAzMDY1Mn0.dJVs_NYEXhlsRYRZuTR0R93QpOQYGb5uVtM9-_EMpbc
+
+{
+    "author": "Joe", 
+    "text": "It's a beautiful winter's day..let's go pick lichens!" 
+}
+
+### Create a new employee
+POST http://localhost:3030/employees/register
+Content-Type: application/json
+
+{
+    "name": "Joe",
+    "email": "joe@nscc.ca",
+    "pwd": "poutine",
+    "favouritePlant": "undecided"
+}
