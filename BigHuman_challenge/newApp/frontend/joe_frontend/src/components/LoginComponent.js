@@ -4,7 +4,7 @@ import '../login.css';
 import AuthHandler from '../Authorise'; 
 import BrandComponent from './BrandComponent';
 import RegistrationComponent from './RegistrationComponent';
-import Link from 'react-router';
+import {Link} from 'react-router-dom';
 import bcrypt from 'bcrypt-nodejs';
 
 class Login extends Component {
