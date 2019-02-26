@@ -34,3 +34,8 @@ body {
 .form-signin input[type="password"] {
   margin-bottom: 10px;
 }
+
+a {
+  font-size: 1em;
+  font-weight: bold;
+}

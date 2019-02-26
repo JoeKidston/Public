@@ -4,6 +4,7 @@ import {Form, Label, Input, Button} from 'reactstrap';
 import '../login.css';
 import AuthHandler from '../Authorise'; 
 import BrandComponent from './BrandComponent';
+import {Link} from 'react-router-dom';
 
 class AddForm extends Component {
     constructor(props) {
@@ -52,8 +53,8 @@ class AddForm extends Component {
                     <Input type="password" id="inputPassword" name="password" placeholder="Password" onChange={this.handleChange} required />
                     {this.displayErrorMessages()}
                     <Button color="primary" size="lg" block type="submit" >Register!</Button><br/>
+                    <Link to="/api/login">Sign Up</Link>        
                 </Form>
-                <a className="extraOptions" href="/api">Cancel</a>
             </div>
         );
     }
