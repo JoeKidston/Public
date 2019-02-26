@@ -13,13 +13,13 @@ class App extends Component {
   
   componentWillMount() { // Check before loading the app if the user is logged in (NOTE: DEPRECATED)
     if(!this.Auth.loggedIn()) {
-      this.props.history.replace('/api/login'); // Don't allow through  
+      this.props.history.replace('/login'); // Don't allow through  
     }
   }
 
   componentDidMount() { // Make a call to our plants API and get our plants.
     if(this.Auth.loggedIn()) {
-      return this.Auth.fetch('plants') 
+      return this.Auth.fetch('/plants') 
         .then(res => {return res.json()
         .then(plantsArray => {this.setState({plants:plantsArray})})})
     }

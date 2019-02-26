@@ -11,9 +11,9 @@ import {BrowserRouter, Route} from 'react-router-dom';
 ReactDOM.render(
     <BrowserRouter>
         <div>
-            <Route exact path="/login" component={LoginComponent} />
-            <Route exact path="/" component={App} />
-            <Route exact path="/register" component={RegistrationComponent} />
+            <Route exact path="/api/login" component={LoginComponent} />
+            <Route exact path="/api" component={App} />
+            <Route exact path="/api/register" component={RegistrationComponent} />
         </div>
     </BrowserRouter>, 
     document.getElementById('root'));
