@@ -8,12 +8,12 @@ class App extends Component {
   constructor(props) {
     super(props) 
     this.state = {plants: []}
-    this.Auth = new AuthHandler('/');
+    this.Auth = new AuthHandler('/api');
 }
   
   componentWillMount() { // Check before loading the app if the user is logged in (NOTE: DEPRECATED)
     if(!this.Auth.loggedIn()) {
-      this.props.history.replace('/login'); // Don't allow through  
+      this.props.history.replace('/api/login'); // Don't allow through  
     }
   }
 

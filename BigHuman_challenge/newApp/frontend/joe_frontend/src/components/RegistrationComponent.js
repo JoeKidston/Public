@@ -11,12 +11,12 @@ class AddForm extends Component {
         this.state = {} 
         this.handleChange = this.handleChange.bind(this) 
         this.handleSubmit = this.handleSubmit.bind(this) 
-        this.Auth = new AuthHandler('/'); 
+        this.Auth = new AuthHandler('/api'); 
     }
 
     componentWillMount() { // Don't let logged-in users see this screen  
         if(this.Auth.loggedIn()) {
-          this.props.history.replace('/') // Go back to main page 
+          this.props.history.replace('/api') // Go back to main page 
         }
       }
 
@@ -30,7 +30,7 @@ class AddForm extends Component {
         this.Auth.addEmployee(this.state.name, this.state.email, bcrypt.hashSync(this.state.password)) 
         .then((res, err) => {
             if(res.message) this.setState({error:res.message})  
-            else this.props.history.replace('/login') // Allow through to log-in screen :)  
+            else this.props.history.replace('/api/login') // Allow through to log-in screen :)  
         })
     };
 
@@ -53,7 +53,7 @@ class AddForm extends Component {
                     {this.displayErrorMessages()}
                     <Button color="primary" size="lg" block type="submit" >Register!</Button><br/>
                 </Form>
-                <a className="extraOptions" href="/">Cancel</a>
+                <a className="extraOptions" href="/api">Cancel</a>
             </div>
         );
     }

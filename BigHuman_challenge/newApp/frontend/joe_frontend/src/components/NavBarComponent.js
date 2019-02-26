@@ -8,7 +8,7 @@ import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, UncontrolledDropdown,
 export default class NavbarComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.Auth = new AuthHandler('/'); 
+    this.Auth = new AuthHandler('/api'); 
     this.toggle = this.toggle.bind(this);
     this.logout = this.logout.bind(this);
     this.state = {
@@ -24,7 +24,7 @@ export default class NavbarComponent extends React.Component {
 
   logout() { // Log user out & remove token from local storage
     this.Auth.logout();
-    this.props.history.replace('/login');
+    this.props.history.replace('/api/login');
   }
 
   getName() { // Print the user's name in the corner

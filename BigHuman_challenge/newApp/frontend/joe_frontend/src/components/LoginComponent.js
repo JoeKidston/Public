@@ -11,12 +11,12 @@ class Login extends Component {
         this.state = {} 
         this.handleChange = this.handleChange.bind(this) 
         this.handleSubmit = this.handleSubmit.bind(this) 
-        this.Auth = new AuthHandler('/'); 
+        this.Auth = new AuthHandler('/api'); 
     }
 
     componentWillMount() { // Don't let logged-in users revisit the log-in screen  
         if(this.Auth.loggedIn()) {
-          this.props.history.replace('/') // Go back to main page  
+          this.props.history.replace('/api') // Go back to main page  
         }
       }
 
@@ -34,7 +34,7 @@ class Login extends Component {
                     this.Auth.login(this.state.email, this.state.password) 
                         .then((res, err) => {
                             if(res.message) this.setState({error:res.message}) // Error text 
-                            else this.props.history.replace('/') // Allow through to main screen :)  
+                            else this.props.history.replace('/api') // Allow through to main screen :)  
                         })
                 } else this.setState({error:"Email and/or password incorrect. Try again!"})
             })
@@ -57,7 +57,7 @@ class Login extends Component {
                     {this.displayErrorMessages()}
                     <Button color="primary" size="lg" block type="submit" >Sign in</Button><br/>
                 </Form>
-                <a className="extraOptions" href="/register">Sign Up</a>        
+                <a className="extraOptions" href="/api/register">Sign Up</a>        
             </div>
         );
     }

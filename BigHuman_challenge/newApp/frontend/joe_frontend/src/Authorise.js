@@ -9,7 +9,7 @@ export default class Authorise {
     }
 
     fetchHash(email, password) { // Compare hashes
-        return this.fetch(`${this.domain}auth/check`, {
+        return this.fetch(`${this.domain}/auth/check`, {
             method: 'POST',
             body: JSON.stringify({
                 email,
@@ -22,7 +22,7 @@ export default class Authorise {
     }
 
     login(email, password) { // Validate login attempt
-        return this.fetch(`${this.domain}auth`, {
+        return this.fetch(`${this.domain}/auth`, {
             method: 'POST',
             body: JSON.stringify({
                 email,
@@ -77,7 +77,7 @@ export default class Authorise {
     }
 
     addEmployee(name, email, password) { // Call the 'EmployeesController' to add a new employee
-        return this.fetch(`${this.domain}employees/register`, {
+        return this.fetch(`${this.domain}/employees/register`, {
             method: 'POST',
             body: JSON.stringify({
                 name,

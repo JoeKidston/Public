@@ -7,6 +7,7 @@ var jwt = require('express-jwt'); // New import!
 
 // Import routing files
 var indexRouter = require('./routes/index');
+var apiRouter = require('./routes/api/index'); 
 
 // Activate .env file 
 require('dotenv').config();
@@ -27,11 +28,12 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'frontend/build')));
+app.use(express.static(path.join(__dirname, 'frontend/joe_frontend/build')));
 
-// Check whether or not user has a valid session token, but allow certain pages. 
-app.use(jwt({secret: 'jonimitchell'}).unless({path: ['/', '/auth', '/auth/check', '/employees/register']}));
+// Check whether or not user has a valid session token, but allow certain pages.
+app.use(jwt({secret: 'jonimitchell'}).unless({path: ['/api', '/api/auth', '/api/auth/check', '/api/employees/register']}));
 app.use('/', indexRouter);
+app.use('/api', apiRouter); // Use this router whenever '/api' comes in
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
