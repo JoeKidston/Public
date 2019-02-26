@@ -12,7 +12,7 @@ ReactDOM.render(
     <BrowserRouter>
         <div>
             <Route exact path="/api/login" component={LoginComponent} />
-            <Route exact path="/api/plants" component={App} />
+            <Route exact path="/api" component={App} />
             <Route exact path="/api/register" component={RegistrationComponent} />
         </div>
     </BrowserRouter>, 
