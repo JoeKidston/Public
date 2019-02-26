@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router(); 
-const plantsController = require('../../controllers/plantsController');
+const plantsController = require('../../../controllers/plantsController');
 
 // Get all plants
 router.get('/', plantsController.index);
