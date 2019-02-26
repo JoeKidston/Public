@@ -3,6 +3,8 @@ import {Form, Label, Input, Button} from 'reactstrap';
 import '../login.css';
 import AuthHandler from '../Authorise'; 
 import BrandComponent from './BrandComponent';
+import RegistrationComponent from './RegistrationComponent';
+import Link from 'react-router';
 import bcrypt from 'bcrypt-nodejs';
 
 class Login extends Component {
@@ -34,7 +36,7 @@ class Login extends Component {
                     this.Auth.login(this.state.email, this.state.password) 
                         .then((res, err) => {
                             if(res.message) this.setState({error:res.message}) // Error text 
-                            else this.props.history.replace('/api') // Allow through to main screen :)  
+                            else this.props.history.replace('/') // Allow through to main screen :)  
                         })
                 } else this.setState({error:"Email and/or password incorrect. Try again!"})
             })
@@ -57,7 +59,7 @@ class Login extends Component {
                     {this.displayErrorMessages()}
                     <Button color="primary" size="lg" block type="submit" >Sign in</Button><br/>
                 </Form>
-                <a className="extraOptions" href="/api/register">Sign Up</a>        
+                <Link to="/api/register">Sign Up</Link>        
             </div>
         );
     }
