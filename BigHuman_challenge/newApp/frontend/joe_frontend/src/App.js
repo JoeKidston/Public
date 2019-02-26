@@ -13,7 +13,7 @@ class App extends Component {
   
   componentWillMount() { // Check before loading the app if the user is logged in (NOTE: DEPRECATED)
     if(!this.Auth.loggedIn()) {
-      this.props.history.replace('/login'); // Don't allow through  
+      this.props.history.replace('/api/login'); // Don't allow through  
     }
   }
 
