@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 // Check whether or not user has a valid session token, but allow certain pages. 
-app.use(jwt({secret: 'jonimitchell'}).unless({path: ['/auth', '/auth/check', '/employees/register']}));
+app.use(jwt({secret: 'jonimitchell'}).unless({path: ['/', '/auth', '/auth/check', '/employees/register']}));
 app.use('/', indexRouter);
 
 // Catch 404 and forward to error handler
