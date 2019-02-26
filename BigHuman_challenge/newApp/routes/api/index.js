@@ -4,6 +4,8 @@ const employeesRouter = require('./employees');
 const plantsRouter = require('./plants');
 const authRouter = require('./auth');
 
+// All routes with /api come here!
+
 router.get('/', (req, res) => {
     res.send('Welcome to Joe\'s plant API!')
 });
