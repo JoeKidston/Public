@@ -53,7 +53,7 @@ class AddForm extends Component {
                     <Input type="password" id="inputPassword" name="password" placeholder="Password" onChange={this.handleChange} required />
                     {this.displayErrorMessages()}
                     <Button color="primary" size="lg" block type="submit" >Register!</Button><br/>
-                    <Link to="/api/login">Sign Up</Link>        
+                    <Link to="/api/login">Cancel</Link>        
                 </Form>
             </div>
         );

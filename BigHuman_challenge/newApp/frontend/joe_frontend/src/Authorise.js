@@ -73,6 +73,7 @@ export default class Authorise {
     fetch(url, options) { // Perform API call with the required authentication headers
         const headers = {'Accept': 'application/json', 'Content-Type': 'application/json'}
         if(this.loggedIn()) headers['Authorization'] = 'Bearer ' + this.getToken(); // Authorization: Bearer xxxxxxx.xxxxxxxx.xxxxxx
+        console.log(url, {headers, ...options});
         return fetch(url, {headers, ...options}); // Using the 'spread' operator to insert token
     }
 
