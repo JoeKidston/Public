@@ -8,11 +8,15 @@ var jwt = require('express-jwt'); // New import!
 // Import routing files
 var indexRouter = require('./routes/index');
 
+// Activate .env file
+require('dotenv').config();
+
 var app = express();
 
 // Connect to MongoDB 
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/BigHuman_Joe', {useNewUrlParser: true})
+console.log(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true})
 
 // View-engine setup (using Jade for now)
 app.set('views', path.join(__dirname, 'views'));
