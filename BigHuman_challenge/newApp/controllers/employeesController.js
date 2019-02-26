@@ -1,5 +1,13 @@
 const Employee = require('../models/employee');
 
+// Show all employees.
+module.exports.index = (req, res) => {
+    Employee.find((err, docs) => {
+        if (err) return res.status(401).json({"message":"ERROR - Something went wrong!"})
+        return res.json(docs);
+    })
+};
+
 // Add a new employee
 module.exports.store = (req, res) => {
     const newEmployee = new Employee();

@@ -4,6 +4,8 @@ const employeesController = require('../../controllers/employeesController');
 
 // All routes with /employees come here!
 
+// Get all plants
+router.get('/', employeesController.index);
 // Add an employee
 router.post('/register', employeesController.store);
 
