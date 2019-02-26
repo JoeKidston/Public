@@ -26,8 +26,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-// app.use(express.static(path.join(__dirname, 'frontend/build')));
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 // Check whether or not user has a valid session token, but allow certain pages. 
 app.use(jwt({secret: 'jonimitchell'}).unless({path: ['/', '/auth', '/auth/check', '/employees/register']}));
