@@ -28,11 +28,16 @@ class AddForm extends Component {
 
     handleSubmit(event) { // 'preventDefault' because we only want the page to load once
         event.preventDefault() // This stops the 'Sign in' button from POSTing (and refreshing the page)
-        this.Auth.addEmployee(this.state.name, this.state.email, bcrypt.hashSync(this.state.password)) 
-        .then((res, err) => {
-            if(res.message) this.setState({error:res.message})  
-            else this.props.history.replace('/api/login') // Allow through to log-in screen :)  
-        })
+        this.Auth.fetchHash(this.state.email, this.state.password)
+            .then((res, err) => {
+                if(res.message) { // Email not taken yet, so add employee to the collection
+                    this.Auth.addEmployee(this.state.name, this.state.email, bcrypt.hashSync(this.state.password)) 
+                    .then((res, err) => {
+                        if(res.message) this.setState({error:res.message})  
+                        else this.props.history.replace('/api/login') // Allow through to log-in screen :)  
+                    })
+                } else this.setState({error:"That email address already taken. Try again!"})
+            }) 
     };
 
     displayErrorMessages() { // Will only return a red error box if, in fact, 'this.state.error' exists

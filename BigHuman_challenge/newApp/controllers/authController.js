@@ -3,7 +3,6 @@ const Employee = require('../models/employee');
 
 // Controller actions 
 module.exports.compareHashes = (req, res) => {
-    console.log('er')
     Employee.find({email:req.body.email}, (err, doc) => {
         if(err) return res.status(401).json({"message":"ERROR - SOMETHING WENT WRONG!"})
         if(doc.length === 0) { // If no records returned...

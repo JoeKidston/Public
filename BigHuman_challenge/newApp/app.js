@@ -31,7 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'frontend/joe_frontend/build')));
 
 // Check whether or not user has a valid session token, but allow certain pages.
-app.use(jwt({secret: 'jonimitchell'}).unless({path: ['/api', '/api/login', '/api/auth', '/api/auth/check', '/api/employees', '/api/plants', '/api/employees/register']}));
+app.use(jwt({secret: 'jonimitchell'}).unless({path: ['/api/auth', '/api/auth/check', '/api/employees', '/api/plants', '/api/employees/register']}));
 app.use('/', indexRouter);
 app.use('/api', apiRouter); // Use this router whenever '/api' comes in
 
